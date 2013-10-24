@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+			<meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<title></title>
+			<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+			<!-- bxSlider Javascript file -->
+			<script src="jquery.bxslider.min.js"></script>
+			<!-- bxSlider CSS file -->
+			<link href="jquery.bxslider.css" rel="stylesheet" />
+	</head>
+	<style>
+	     .outside {
+	     	   position:relative;
+	     	   top:-180px;
+	     	   z-index:99999999;	     	   
+	     }
+	     #slider-prev {
+	     	float:left;
+	     }
+
+	     #slider-next {
+	     	float:right;
+	     }
+
+	     .outside{
+	     	z-index:-999999999999;
+	     }
+	</style> 
+	<body>		
+		<div id="container" style="margin: 100px auto; width:700px;">			
+			 <ul class="bxslider">
+			  <li><img class="thisOne"  img src="images/pic1.jpg"  title="Lorem ipsum dsafkjhsdaflkhdsafkj"/></li>
+			  <li><img class="thisOne" src="images/pic2.jpg" title="Lorem ipsum dsafkjhsdaflkhdsafkj" /></li>
+			  <li><img class="thisOne" src="images/pic3.jpg" title="Lorem ipsum dsafkjhsdaflkhdsafkj" /></li>
+			  <li><img class="thisOne" src="images/pic4.jpg" title="Lorem ipsum dslfakjds;lafkjds;lafkjg;oljdfgopi ds ogijugjdfoi" /></li>
+			  <li><img class="thisOne" src="images/pic5.jpg" title="Lorem ipsum dslfakjds;lafkjds;lafkjg;oljdfgopi ds ogijugjdfoi" /></li>
+			  <li><img class="thisOne" src="images/pic7.jpg" title="Lorem ipsum dslfakjds;lafkjds;lafkjg;oljdfgopi ds ogijugjdfoi" /></li>
+			 </ul>
+			<!--  <div class="bx-controls-direction"><a class="bx-prev" href=""><img src="images/prev.png" alt="Prev"></a><a class="bx-next" href=""><img src="images/next.png" alt="Next"></a></div> 									-->
+			<div class="outside">			  
+			  <p><span id="slider-prev"></span> <span id="slider-next"></span></p>
+			</div>
+		</div>	
+		<body>		
+		<div id="container1" style="margin: 100px auto; width:700px;">			
+			 <ul class="bxslider1">
+			  <li><img class="thisOne"  img src="images/pic1.jpg"  title="Lorem ipsum dsafkjhsdaflkhdsafkj"/></li>
+			  <li><img class="thisOne" src="images/pic2.jpg" title="Lorem ipsum dsafkjhsdaflkhdsafkj" /></li>
+			  <li><img class="thisOne" src="images/pic3.jpg" title="Lorem ipsum dsafkjhsdaflkhdsafkj" /></li>
+			  <li><img class="thisOne" src="images/pic4.jpg" title="Lorem ipsum dslfakjds;lafkjds;lafkjg;oljdfgopi ds ogijugjdfoi" /></li>
+			  <li><img class="thisOne" src="images/pic5.jpg" title="Lorem ipsum dslfakjds;lafkjds;lafkjg;oljdfgopi ds ogijugjdfoi" /></li>
+			  <li><img class="thisOne" src="images/pic7.jpg" title="Lorem ipsum dslfakjds;lafkjds;lafkjg;oljdfgopi ds ogijugjdfoi" /></li>
+			 </ul>			
+		</div>		
+	</body>
+	</body>
+	<script>
+	$(document).ready(function(){
+	  	$('.bxslider').bxSlider({
+	  		speed:6000,	  		
+	  		slideWidth: 170,
+ 			slideMargin:5,
+ 			minSlides:4,
+ 			maxSlides:10, 			
+ 			useCSS: false,
+ 			nextSelector: '#slider-next',
+			prevSelector: '#slider-prev',
+			nextText: '<img src="images/next.png">',
+			prevText: '<img src="images/prev.png">'
+	  	});
+
+	  	$('#container1').hover(function(){ 
+	  		$('#container').css('z-index','-9999999');	
+
+	  	});
+	  	if($('.bx-controls')) {
+	  		$('.bx-controls').remove();	  		//alert($('.bx-controls'));
+	  	}
+	  	else{
+	  		return false;
+	  	}
+	  		
+	  $('.thisOne',this).hover(function() {
+	  	var title = $(this).attr('title');	 
+	  	if (title != undefined && ('' + title).length) { 	
+        	$(this.parentNode).append('<div class="bx-caption"><span>' + title + '</span></div>');        
+        }
+        });  
+
+      $('.thisOne',this).mouseleave(function() {	      	 
+        	$(this.parentNode).children('div').remove();        	
+        	}); 
+			  
+	  $('.bxslider').hover(function(){	
+	     $('.outside').css('z-index','9999999');	  	 			 	
+	  	}); 
+
+	  $('#container').mouseleave(function(){	
+	     $('.outside').css('z-index','-9999999');	  	 	
+		 	
+	  	}); 
+	});
+
+
+	</script>
+		<script>
+	$(document).ready(function(){
+	  	$('.bxslider1').bxSlider({
+	  		speed:6000,	  		
+	  		slideWidth: 170,
+ 			slideMargin:5,
+ 			minSlides:4,
+ 			maxSlides:10,
+ 			useCSS:false,
+ 			ticker:true,
+ 			tickerHover:true 			
+	  	});
+	});
+
+
+	</script>	
+</html>
